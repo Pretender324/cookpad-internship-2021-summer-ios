@@ -22,6 +22,7 @@
 		8D19D91A26CB57340037DC89 /* ProductListPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D19D91926CB57340037DC89 /* ProductListPageView.swift */; };
 		8D19D91C26CB71760037DC89 /* ProductDetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D19D91B26CB71760037DC89 /* ProductDetailPageView.swift */; };
 		8D19D91E26CB7A910037DC89 /* CartPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D19D91D26CB7A910037DC89 /* CartPageView.swift */; };
+		8D19D92026CB81FE0037DC89 /* CartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D19D91F26CB81FE0037DC89 /* CartState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8D19D91926CB57340037DC89 /* ProductListPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPageView.swift; sourceTree = "<group>"; };
 		8D19D91B26CB71760037DC89 /* ProductDetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPageView.swift; sourceTree = "<group>"; };
 		8D19D91D26CB7A910037DC89 /* CartPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPageView.swift; sourceTree = "<group>"; };
+		8D19D91F26CB81FE0037DC89 /* CartState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		11D5A39E26A71CF9005BD9C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8D19D91F26CB81FE0037DC89 /* CartState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				8D19D91426CB54350037DC89 /* API.swift in Sources */,
 				8D19D91E26CB7A910037DC89 /* CartPageView.swift in Sources */,
 				8D19D91626CB545D0037DC89 /* Network.swift in Sources */,
+				8D19D92026CB81FE0037DC89 /* CartState.swift in Sources */,
 				11FD9C632692A79600BBCD33 /* MiniMartApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
