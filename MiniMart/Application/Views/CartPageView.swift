@@ -13,8 +13,9 @@ struct CartPageView: View {
     @Binding var isCartViewPresented: Bool
     
     var body: some View {
-        VStack {
-            List(cartState.cartItems, id: \.product.id) { cartItem in
+        ScrollView{
+            LazyVStack(alignment: .leading) {
+            ForEach(cartState.cartItems, id: \.product.id){ cartItem in
                 HStack(alignment: .top) {
                     RemoteImage(urlString: cartItem.product.imageUrl)
                         .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
@@ -25,7 +26,27 @@ struct CartPageView: View {
                         Text("\(cartItem.product.price)円")
                         Spacer()
                             .frame(height: 8)
-                        Text("\(cartItem.quantity)個")
+                        HStack {
+                            Button(action: {
+                                cartState.add(product: cartItem.product)
+                            }, label: {
+                                Text("+")
+                            })
+                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Color.orange)
+                            .foregroundColor(.white)
+                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            Text("\(cartItem.quantity)個")
+                            Button(action: {
+                                cartState.subtract(product: cartItem.product)
+                            }, label: {
+                                Text("-")
+                                })
+                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Color.orange)
+                            .foregroundColor(.white)
+                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                        }
                     }
                         
                         
@@ -34,6 +55,8 @@ struct CartPageView: View {
                 }
             Divider()
             Text("合計: \(cartState.totalPrice)円")
+                .bold()
+                .frame(maxWidth: .infinity, alignment: .trailing)
             Divider()
             Button(action: {self.isOrderConfirmationAlertPresented = true }, label: {
                 Text("注文する")
@@ -43,6 +66,7 @@ struct CartPageView: View {
                 .background(Color.orange)
                 .foregroundColor(.white)
                 .cornerRadius(10)
+                .padding(8)
         }
         .padding(.vertical, 8)
         .alert(isPresented: self.$isOrderConfirmationAlertPresented){
@@ -53,6 +77,7 @@ struct CartPageView: View {
                             cartState.clear()
                 }
             )
+        }
         }
         .navigationTitle("カート")
     }

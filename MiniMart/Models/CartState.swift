@@ -14,6 +14,16 @@ final class CartState: ObservableObject {
         }
     }
     
+    func subtract(product: FetchProductsQuery.Data.Product) -> Void {
+        if let itemIndex = cartItems.firstIndex(where: { $0.product.id == product.id }) {
+            var item = cartItems[itemIndex]
+            if item.quantity > 0 {
+                item.quantity -= 1
+                cartItems[itemIndex] = item
+            }
+        }
+    }
+    
     func clear() {
         cartItems.removeAll()
     }
