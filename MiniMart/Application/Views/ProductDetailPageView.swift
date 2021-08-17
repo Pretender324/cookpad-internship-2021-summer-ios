@@ -30,12 +30,12 @@ struct ProductDetailPageView: View {
                     Spacer()
                         .frame(height: 32)
                     Button(action: {
-                        cartState.products.append(product)
+                        cartState.add(product: product)
                     }, label: {
                         Text("カートに追加")
-                            .padding(.vertical, 10)
                     })
                     .frame(maxWidth: .infinity)
+                    .frame(height: 50)
                     .background(Color.orange)
                     .foregroundColor(.white)
                     .cornerRadius(10)
@@ -50,14 +50,14 @@ struct ProductDetailPageView: View {
                 }) {
                     VStack {
                         Image(systemName: "folder")
-                        Text(cartState.products.count.description)
+                        Text("\(cartState.totalProductCounts)")
                         }
                 }
             }
         }
         .sheet(isPresented: $isCartViewPresented){
             NavigationView{
-                CartPageView()
+                CartPageView(isCartViewPresented: $isCartViewPresented)
             }
         }
     }
