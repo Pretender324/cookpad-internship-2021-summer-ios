@@ -73,8 +73,9 @@ struct ProductDetailPageView_Previews: PreviewProvider {
                 price: 100,
                 summary: "おいしい食材 \(1)",
                 imageUrl: "https://image.mini-mart.com/dummy/1"
-            )
+                )
             )
         }
+        .environmentObject(CartState())
     }
 }

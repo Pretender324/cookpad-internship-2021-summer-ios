@@ -83,5 +83,6 @@ struct ProductListPageView_Previews: PreviewProvider {
        ]
     static var previews: some View {
         ProductListPageView(products: products)
+            .environmentObject(CartState())
     }
 }
